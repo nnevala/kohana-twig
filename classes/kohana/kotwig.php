@@ -11,7 +11,7 @@ class Kohana_Kotwig {
 	 * @var  object  Kotwig instance
 	 */
 	public static $instance;
-	
+
 	/**
 	 * @var  Twig_Environment
 	 */
@@ -27,9 +27,9 @@ class Kohana_Kotwig {
 		if ( ! Kotwig::$instance)
 		{
 			Kotwig::$instance = new Kotwig;
-			
+
 			// Load Twig configuration
-			Kotwig::$instance->config = Kohana::config('kotwig');
+			Kotwig::$instance->config = Kohana::$config->load('kotwig');
 
 			// Create the the loader
 			$loader = new Twig_Loader_Filesystem(Kotwig::$instance->config->templates);
